@@ -1,15 +1,3 @@
-/*
- *  shm_msgclient.c
- *  
- *  Illustrates memory mapping and persistency, with POSIX objects.
- *  This process reads and displays a message left it in "memory segment
- *  image", a file been mapped from a memory segment.
- *
- *
- *  Created by Mij <mij@bitchx.it> on 27/08/05.
- *  Original source file available at http://mij.oltrelinux.com/devel/unixprg/
- *
- */
 
 #include <stdio.h>
 /* exit() etc */
@@ -24,8 +12,6 @@
 #include <time.h>
 
 
-/* Posix IPC object name [system dependant] - see
-http://mij.oltrelinux.com/devel/unixprg/index2.html#ipc__posix_objects */
 #define SHMOBJ_PATH         "./tem17"      
 /* maximum length of the content of the message */
 #define MAX_MSG_LENGTH      50

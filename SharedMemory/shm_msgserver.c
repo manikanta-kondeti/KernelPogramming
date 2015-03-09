@@ -1,16 +1,3 @@
-/*
- *  shm_msgserver.c
- *  
- *  Illustrates memory mapping and persistency, with POSIX objects.
- *  This process produces a message leaving it in a shared segment.
- *  The segment is mapped in a persistent object meant to be subsequently
- *  open by a shared memory "client".
- *
- *
- *  Created by Mij <mij@bitchx.it> on 27/08/05.
- *  Original source file available at http://mij.oltrelinux.com/devel/unixprg/
- *
- */
 
 
 #include <stdio.h>
@@ -27,8 +14,6 @@
 #include <time.h>
 
 
-/* Posix IPC object name [system dependant] - see
-http://mij.oltrelinux.com/devel/unixprg/index2.html#ipc__posix_objects */
 #define SHMOBJ_PATH         "./tem17"
 /* maximum length of the content of the message */
 #define MAX_MSG_LENGTH      50
@@ -123,19 +108,10 @@ int main(int argc, char *argv[]) {
 	printf("For 4:  node1=%d node2=%d  cost=%d\n", shared_msg4->node1, shared_msg4->node2, shared_msg4->cost);
 	printf("For 5:  node1=%d node2=%d  cost=%d\n", shared_msg5->node1, shared_msg5->node2, shared_msg5->cost);
 	fclose(fp);
-   // shared_msg->type = 15;
-   // strcpy(shared_msg->content, "This is Manikanta ");
     srandom(time(NULL));
     /* producing a message on the shared segment */
 
    
-    /* [uncomment if you wish] requesting the removal of the shm object     --  shm_unlink() */
-/*
-    if (shm_unlink(SHMOBJ_PATH) != 0) {
-        perror("In shm_unlink()");
-        exit(1);
-    }
-*/
 
     return 0;
 }

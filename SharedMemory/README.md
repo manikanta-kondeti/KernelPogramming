@@ -20,6 +20,21 @@ A process creates a shared memory segment using shmget()|. The original owner of
   * It is used to detach shared memory segments.
   * int shmdt(const void \*shmaddr)
 
+## Whats happening in this code:
+* My aim is to create a shared memory object which takes a output file and gives access to other processes. 
+* In this work I've created a 'route' file which has some numbers. Assume it as node1, node2 and cost from n1,n2 to keep it simple.
+* In shm_msgserver.c I've created a shared memory object which takes all the information in route file and keep it in structs. 
+* In shm_msgclient.c we can access the shared memory object and get the results. 
+* There are few bugs in this code(bear with me). I just tried to test the concept. Hope it helped you understood something.  
+
+## How to test it: 
+* git clone https://github.com/manikanta-kondeti/KernelPogramming 
+* cd SharedMemory 
+* chmod +x run.sh
+* ./run.sh 
+* Open two tabs:
+  * Tab1:  ./shm_msgserver.c 
+  * Tab2:  ./shm_msgclient.c 
 
 ## Advanced Stuff :
 * Semaphore needs to be implemented, which controls the write and read permission for processes on the created shared memory object.
