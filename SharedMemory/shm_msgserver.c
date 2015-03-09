@@ -23,12 +23,13 @@
 #include <sys/stat.h>
 /* for random() stuff */
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
 
 /* Posix IPC object name [system dependant] - see
 http://mij.oltrelinux.com/devel/unixprg/index2.html#ipc__posix_objects */
-#define SHMOBJ_PATH         "routeOutput"
+#define SHMOBJ_PATH         "./temp2"
 /* maximum length of the content of the message */
 #define MAX_MSG_LENGTH      50
 /* how many types of messages we recognize (fantasy) */
@@ -66,11 +67,10 @@ int main(int argc, char *argv[]) {
     }
     fprintf(stderr, "Shared memory segment allocated correctly (%d bytes).\n", shared_seg_size);
 
-    
-    int mani = 10;
+    shared_msg->type = 15;
+    strcpy(shared_msg->content, "This is Manikanta ");
     srandom(time(NULL));
     /* producing a message on the shared segment */
-    sprintf("My message, type %d, num %d", shared_msg->type, mani);
 
    
     /* [uncomment if you wish] requesting the removal of the shm object     --  shm_unlink() */

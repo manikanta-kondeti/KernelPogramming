@@ -21,5 +21,6 @@ A process creates a shared memory segment using shmget()|. The original owner of
   * int shmdt(const void \*shmaddr)
 
 
-## Advanced Stuff:
-* It has semaphore, which controls the write and read permission for processes on the created shared memory object.
+## Advance Stuff :
+* Semaphore needs to be implemented, which controls the write and read permission for processes on the created shared memory object.
+* c++11 has a different ways of implementing it.

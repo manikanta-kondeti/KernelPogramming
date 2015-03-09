@@ -26,7 +26,7 @@
 
 /* Posix IPC object name [system dependant] - see
 http://mij.oltrelinux.com/devel/unixprg/index2.html#ipc__posix_objects */
-#define SHMOBJ_PATH         "/foo1423"      
+#define SHMOBJ_PATH         "./temp2"      
 /* maximum length of the content of the message */
 #define MAX_MSG_LENGTH      50
 /* how many types of messages we recognize (fantasy) */
